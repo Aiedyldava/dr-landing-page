@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetheris AI Labs | Diabetic Retinopathy Detection</title>
+    <title>Aetheris AI Labs</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         medical: {
                             bg: '#f0f4f8',
@@ -35,30 +33,6 @@
             background-color: #f0f4f8;
             color: #0f172a;
         }
-        
-        /* Eye Scanning Animation */
-        @keyframes scan {
-            0% { transform: translateY(-50px); opacity: 0; }
-            15% { opacity: 1; }
-            85% { opacity: 1; }
-            100% { transform: translateY(50px); opacity: 0; }
-        }
-        
-        .scanning-laser {
-            animation: scan 2.5s ease-in-out infinite alternate;
-            transform-origin: center;
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(2, 132, 199, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
-        }
-
-        .eye-container {
-            animation: pulse-ring 3s infinite;
-            border-radius: 50%;
-        }
     </style>
 </head>
 <body class="antialiased font-sans flex flex-col min-h-screen">
@@ -70,22 +44,12 @@
                 <div class="flex items-center">
                     <img src="assets/logo-primary.png" alt="Aetheris AI Labs" class="h-8 w-auto object-contain">
                 </div>
-                <!-- Desktop Nav -->
                 <div class="hidden md:flex items-center gap-6">
-                    <a href="#features" class="text-medical-textMuted hover:text-medical-accent font-medium transition-colors" data-lang-en="Features" data-lang-id="Fitur">Features</a>
-                    <a href="#showcase" class="text-medical-textMuted hover:text-medical-accent font-medium transition-colors" data-lang-en="Interface" data-lang-id="Antarmuka">Interface</a>
-                    <a href="#contact" class="px-4 py-2 bg-medical-accent hover:bg-medical-accentHover text-white rounded-lg font-semibold text-sm transition-colors" data-lang-en="Book a Demo" data-lang-id="Jadwalkan Demo">Book a Demo</a>
-                    <button id="langToggle" class="flex items-center gap-2 px-4 py-2 rounded-full border border-medical-border text-medical-textMuted hover:bg-gray-50 transition-colors font-semibold text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span id="langText">EN / ID</span>
-                    </button>
+                    <a href="#products" class="text-medical-textMuted hover:text-medical-accent font-medium transition-colors">Products</a>
+                    <a href="#about" class="text-medical-textMuted hover:text-medical-accent font-medium transition-colors">About</a>
+                    <a href="#contact" class="px-4 py-2 bg-medical-accent hover:bg-medical-accentHover text-white rounded-lg font-semibold text-sm transition-colors">Contact Us</a>
                 </div>
-                <!-- Mobile: lang toggle + hamburger -->
-                <div class="flex md:hidden items-center gap-3">
-                    <button id="langToggleMobile" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-medical-border text-medical-textMuted font-semibold text-xs">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span id="langTextMobile">EN</span>
-                    </button>
+                <div class="flex md:hidden items-center">
                     <button id="mobileMenuBtn" class="p-2 rounded-lg text-medical-textMuted hover:bg-gray-100 transition-colors">
                         <svg id="menuIconOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                         <svg id="menuIconClose" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -93,11 +57,10 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu Drawer -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-medical-border bg-white px-4 py-4 space-y-2">
-            <a href="#features" class="mobile-nav-link block px-4 py-3 rounded-lg text-medical-textMain font-medium hover:bg-gray-50 transition-colors" data-lang-en="Features" data-lang-id="Fitur">Features</a>
-            <a href="#showcase" class="mobile-nav-link block px-4 py-3 rounded-lg text-medical-textMain font-medium hover:bg-gray-50 transition-colors" data-lang-en="Interface" data-lang-id="Antarmuka">Interface</a>
-            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-lg bg-medical-accent text-white font-semibold text-center transition-colors" data-lang-en="Book a Demo" data-lang-id="Jadwalkan Demo">Book a Demo</a>
+            <a href="#products" class="mobile-nav-link block px-4 py-3 rounded-lg text-medical-textMain font-medium hover:bg-gray-50 transition-colors">Products</a>
+            <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-medical-textMain font-medium hover:bg-gray-50 transition-colors">About</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-lg bg-medical-accent text-white font-semibold text-center transition-colors">Contact Us</a>
         </div>
     </nav>
 
@@ -105,71 +68,201 @@
     <section class="relative pt-14 pb-16 md:pt-20 md:pb-24 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-                
+
                 <!-- Text Content -->
                 <div class="max-w-2xl text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-medical-blueAccent text-xs sm:text-sm font-semibold mb-5">
                         <span class="w-2 h-2 rounded-full bg-medical-blueAccent shrink-0"></span>
-                        <span data-lang-en="Advanced Diagnostic Support Tool" data-lang-id="Alat Pendukung Diagnostik Lanjutan">Advanced Diagnostic Support Tool</span>
+                        Clinical AI Research &amp; Development
                     </div>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-medical-textMain leading-tight mb-5" data-lang-en="Automated Diabetic Retinopathy Detection" data-lang-id="Deteksi Retinopati Diabetik Otomatis">
-                        Automated Diabetic Retinopathy Detection
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-medical-textMain leading-tight mb-5">
+                        AI That Works Where Medicine Happens
                     </h1>
-                    <p class="text-base sm:text-lg text-medical-textMuted mb-8 leading-relaxed" data-lang-en="Empowering clinicians with a Hybrid Ensemble Model combining Swin-Base, EfficientNetV2-M, and ConvNeXt-Base. Accurately identify vascular abnormalities and grade severity in seconds." data-lang-id="Memberdayakan klinisi dengan Model Hybrid Ensemble yang menggabungkan Swin-Base, EfficientNetV2-M, dan ConvNeXt-Base. Identifikasi kelainan pembuluh darah dan nilai tingkat keparahan dalam hitungan detik secara akurat.">
-                        Empowering clinicians with a Hybrid Ensemble Model combining Swin-Base, EfficientNetV2-M, and ConvNeXt-Base. Accurately identify vascular abnormalities and grade severity in seconds.
+                    <p class="text-base sm:text-lg text-medical-textMuted mb-8 leading-relaxed">
+                        Aetheris AI Labs builds intelligent diagnostic tools designed for real clinical environments, fast, offline-capable, and built to the standards clinicians demand.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                        <a href="#contact" class="w-full sm:w-auto text-center px-8 py-4 bg-medical-accent hover:bg-medical-accentHover text-white rounded-lg font-semibold transition-colors shadow-sm" data-lang-en="Book a Demo" data-lang-id="Jadwalkan Demo">
-                            Book a Demo
+                        <a href="#products" class="w-full sm:w-auto text-center px-8 py-4 bg-medical-accent hover:bg-medical-accentHover text-white rounded-lg font-semibold transition-colors shadow-sm">
+                            Explore Products
                         </a>
-                        <a href="#features" class="w-full sm:w-auto text-center px-8 py-4 bg-white border border-medical-border hover:bg-gray-50 text-medical-textMain rounded-lg font-semibold transition-colors shadow-sm" data-lang-en="Explore Capabilities" data-lang-id="Jelajahi Kemampuan">
-                            Explore Capabilities
+                        <a href="#contact" class="w-full sm:w-auto text-center px-8 py-4 bg-white border border-medical-border hover:bg-gray-50 text-medical-textMain rounded-lg font-semibold transition-colors shadow-sm">
+                            Contact Us
                         </a>
                     </div>
                 </div>
 
-                <!-- Animated Eye Graphic / Fundus Image -->
+                <!-- Visual -->
                 <div class="flex justify-center items-center relative py-8 lg:py-0">
                     <div class="absolute inset-0 bg-gradient-to-tr from-teal-50 to-blue-50 rounded-full blur-3xl opacity-50"></div>
-                    <div class="eye-container rounded-full overflow-hidden shadow-2xl border-4 border-white w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 relative z-10">
-                        <img src="assets/hero-fundus.png" alt="Fundus Image Scan" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 pointer-events-none">
-                            <svg viewBox="0 0 100 100" class="w-full h-full preserve-3d">
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#10b981" stroke-width="2" class="scanning-laser"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#10b981" stroke-width="8" opacity="0.3" class="scanning-laser"/>
-                            </svg>
+                    <div class="relative z-10 bg-white rounded-2xl border border-medical-border shadow-2xl p-8 w-full max-w-sm">
+                        <img src="assets/logo-primary.png" alt="Aetheris AI Labs" class="h-10 w-auto object-contain mb-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 p-3 rounded-lg bg-medical-bg border border-medical-border">
+                                <div class="w-2 h-2 rounded-full bg-medical-success shrink-0"></div>
+                                <span class="text-sm font-medium text-medical-textMain">Diabetic Retinopathy Detection</span>
+                                <span class="ml-auto text-xs text-medical-success font-semibold">Live</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-lg bg-medical-bg border border-dashed border-medical-border opacity-60">
+                                <div class="w-2 h-2 rounded-full bg-medical-blueAccent shrink-0"></div>
+                                <span class="text-sm font-medium text-medical-textMuted">More Products</span>
+                                <span class="ml-auto text-xs text-medical-blueAccent font-semibold">In Dev</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-lg bg-medical-bg border border-dashed border-medical-border opacity-40">
+                                <div class="w-2 h-2 rounded-full bg-medical-textMuted shrink-0"></div>
+                                <span class="text-sm font-medium text-medical-textMuted">Coming Soon</span>
+                                <span class="ml-auto text-xs text-medical-textMuted font-semibold">2026</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- The Problem Section -->
-    <section class="py-16 md:py-24 bg-white border-t border-medical-border">
+    <!-- Stats -->
+    <section class="py-16 md:py-20 bg-white border-t border-medical-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div class="grid grid-cols-3 gap-8 md:gap-12 text-center">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-medical-textMain mb-8 md:mb-10" data-lang-en="The Status Quo is Devastating" data-lang-id="Status Quo Sangat Menghancurkan">The Status Quo is Devastating</h2>
-                    
-                    <div class="space-y-8 md:space-y-12">
-                        <div class="relative pl-6 md:pl-8 border-l-4 border-red-500">
-                            <h3 class="text-xl md:text-2xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Irreversible Vision Loss" data-lang-id="Kehilangan Penglihatan Permanen">Irreversible Vision Loss</h3>
-                            <p class="text-medical-textMuted text-base md:text-lg leading-relaxed" data-lang-en="Millions of diabetic patients miss early detection windows due to limited specialist availability. Delayed diagnosis leads directly to irreversible blindness that could have been prevented." data-lang-id="Jutaan pasien diabetes melewatkan jendela deteksi dini karena terbatasnya ketersediaan spesialis. Diagnosis yang tertunda secara langsung mengarah pada kebutaan permanen yang seharusnya dapat dicegah.">
-                                Millions of diabetic patients miss early detection windows due to limited specialist availability. Delayed diagnosis leads directly to irreversible blindness that could have been prevented.
-                            </p>
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-medical-accent mb-2">&lt; 5s</div>
+                    <div class="text-sm md:text-base font-semibold text-medical-textMain">Inference Time</div>
+                    <p class="text-medical-textMuted text-xs md:text-sm mt-1">FP16-optimized, on standard hardware</p>
+                </div>
+                <div>
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-medical-blueAccent mb-2">100%</div>
+                    <div class="text-sm md:text-base font-semibold text-medical-textMain">Offline</div>
+                    <p class="text-medical-textMuted text-xs md:text-sm mt-1">Patient data never leaves the device</p>
+                </div>
+                <div>
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-medical-textMain mb-2">3x</div>
+                    <div class="text-sm md:text-base font-semibold text-medical-textMain">Ensemble Models</div>
+                    <p class="text-medical-textMuted text-xs md:text-sm mt-1">Combined for maximum reliability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 md:py-24 bg-medical-bg border-t border-medical-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold text-medical-textMain mb-4">Our Products</h2>
+                <p class="text-medical-textMuted text-base md:text-xl">Precision AI diagnostic tools built for real clinical environments, designed to work anywhere.</p>
+            </div>
+
+            <!-- DR Product Feature -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 md:mb-20">
+                <div class="order-2 lg:order-1 bg-white rounded-2xl border border-medical-border shadow-sm p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
                         </div>
-                        
-                        <div class="relative pl-6 md:pl-8 border-l-4 border-orange-500">
-                            <h3 class="text-xl md:text-2xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Inconsistent Grading" data-lang-id="Penilaian Tidak Konsisten">Inconsistent Grading</h3>
-                            <p class="text-medical-textMuted text-base md:text-lg leading-relaxed" data-lang-en="Manual grading of fundus images is subjective and prone to human error. Subtle microaneurysms and early-stage lesions are frequently missed during high-volume screening sessions." data-lang-id="Penilaian manual citra fundus bersifat subjektif dan rentan terhadap kesalahan manusia. Mikroaneurisma halus dan lesi tahap awal sering terlewatkan selama sesi skrining volume tinggi.">
-                                Manual grading of fundus images is subjective and prone to human error. Subtle microaneurysms and early-stage lesions are frequently missed during high-volume screening sessions.
-                            </p>
+                        <div>
+                            <div class="text-xs font-semibold text-medical-success uppercase tracking-wider">Live Product</div>
+                            <h3 class="text-lg font-bold text-medical-textMain leading-tight">Diabetic Retinopathy Detection</h3>
+                        </div>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="relative pl-5 border-l-2 border-medical-accent">
+                            <h4 class="font-semibold text-medical-textMain mb-1">5-Level Severity Grading</h4>
+                            <p class="text-medical-textMuted text-sm leading-relaxed">Automatically classifies fundus images from No DR to Proliferative using a Hybrid Ensemble of Swin-Base, EfficientNetV2-M, and ConvNeXt-Base.</p>
+                        </div>
+                        <div class="relative pl-5 border-l-2 border-medical-blueAccent">
+                            <h4 class="font-semibold text-medical-textMain mb-1">Multi-label Lesion Segmentation</h4>
+                            <p class="text-medical-textMuted text-sm leading-relaxed">Pixel-level detection of Hard Exudates, Hemorrhages, Microaneurysms, and Soft Exudates via U-Net++ with automatic optic disc masking.</p>
+                        </div>
+                        <div class="relative pl-5 border-l-2 border-medical-success">
+                            <h4 class="font-semibold text-medical-textMain mb-1">Clinical Action Recommendations</h4>
+                            <p class="text-medical-textMuted text-sm leading-relaxed">Immediate next steps based on diagnosis, from routine screening to urgent specialist referral.</p>
+                        </div>
+                    </div>
+                    <div class="mt-7">
+                        <a href="dr/index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-medical-accent hover:bg-medical-accentHover text-white rounded-lg font-semibold text-sm transition-colors">
+                            View Product Page
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-medical-blueAccent text-xs sm:text-sm font-semibold mb-5">
+                        <span class="w-2 h-2 rounded-full bg-medical-blueAccent shrink-0"></span>
+                        AI-Powered Ophthalmology
+                    </div>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-medical-textMain leading-tight mb-5">
+                        Specialist-Level Accuracy at Every Clinic
+                    </h2>
+                    <p class="text-medical-textMuted text-base md:text-lg leading-relaxed mb-6">
+                        Millions of diabetic patients miss early detection windows due to limited specialist availability. Our desktop application brings automated, accurate DR screening to any clinical setting, no internet required.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl border border-medical-border p-4">
+                            <div class="text-2xl font-bold text-medical-accent mb-1">92%</div>
+                            <div class="text-xs font-semibold text-medical-textMuted uppercase tracking-wider">Sensitivity</div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-medical-border p-4">
+                            <div class="text-2xl font-bold text-medical-textMain mb-1">89%</div>
+                            <div class="text-xs font-semibold text-medical-textMuted uppercase tracking-wider">Specificity</div>
                         </div>
                     </div>
                 </div>
-                <div class="relative order-first lg:order-last">
+            </div>
+
+            <!-- Coming Soon row -->
+            <div class="border-t border-medical-border pt-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="h-px flex-1 bg-medical-border"></div>
+                    <span class="text-xs font-semibold text-medical-textMuted uppercase tracking-widest">More in Development</span>
+                    <div class="h-px flex-1 bg-medical-border"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-xl border border-dashed border-medical-border p-5 opacity-60">
+                        <div class="text-xs font-semibold text-medical-blueAccent uppercase tracking-wider mb-2">In Development</div>
+                        <h4 class="font-semibold text-medical-textMain">New Diagnostic Module</h4>
+                        <p class="text-medical-textMuted text-sm mt-1">Expanding into additional clinical domains. Details to be announced.</p>
+                    </div>
+                    <div class="bg-white rounded-xl border border-dashed border-medical-border p-5 opacity-40">
+                        <div class="text-xs font-semibold text-medical-textMuted uppercase tracking-wider mb-2">Coming Soon</div>
+                        <h4 class="font-semibold text-medical-textMain">TBA</h4>
+                        <p class="text-medical-textMuted text-sm mt-1">More products are being designed and tested.</p>
+                    </div>
+                    <div class="bg-white rounded-xl border border-dashed border-medical-border p-5 opacity-25 hidden md:block">
+                        <div class="text-xs font-semibold text-medical-textMuted uppercase tracking-wider mb-2">Coming Soon</div>
+                        <h4 class="font-semibold text-medical-textMain">TBA</h4>
+                        <p class="text-medical-textMuted text-sm mt-1">More products are being designed and tested.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white border-t border-medical-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-4 md:mb-6">Built for the Real World of Medicine</h2>
+                    <p class="text-lg text-medical-textMuted mb-6 leading-relaxed">
+                        Healthcare infrastructure in many parts of the world remains under-resourced. Specialist shortages, unreliable connectivity, and high screening volumes mean patients fall through the cracks every day.
+                    </p>
+                    <p class="text-base text-medical-textMuted mb-8 leading-relaxed">
+                        Aetheris AI Labs was founded to close that gap, building AI diagnostic tools that run locally, work fast, and deliver results clinicians can trust, regardless of location or resources.
+                    </p>
+                    <div class="divide-y divide-medical-border">
+                        <div class="py-5 first:pt-0">
+                            <h4 class="font-bold text-medical-textMain mb-1">Offline-First Architecture</h4>
+                            <p class="text-medical-textMuted text-sm leading-relaxed">All models run locally on standard hardware. No patient data ever leaves the device.</p>
+                        </div>
+                        <div class="py-5">
+                            <h4 class="font-bold text-medical-textMain mb-1">Clinician-Centered Design</h4>
+                            <p class="text-medical-textMuted text-sm leading-relaxed">Interfaces designed around clinical workflows, minimal friction, maximum diagnostic clarity.</p>
+                        </div>
+                        <div class="py-5">
+                            <h4 class="font-bold text-medical-textMain mb-1">Rigorous Validation</h4>
+                            <p class="text-medical-textMuted text-sm leading-relaxed">Models validated on diverse clinical datasets to ensure reliable performance across patient demographics.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
                     <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80" alt="Medical Professional" class="rounded-2xl shadow-xl object-cover h-64 sm:h-80 lg:h-[500px] w-full">
                     <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10"></div>
                 </div>
@@ -177,304 +270,25 @@
         </div>
     </section>
 
-    <!-- Impact Stats Section -->
-    <section class="py-16 md:py-20 bg-medical-bg border-t border-medical-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-4 md:mb-6" data-lang-en="Introducing Aetheris AI Diagnostics" data-lang-id="Memperkenalkan Aetheris AI Diagnostics">Introducing Aetheris AI Diagnostics</h2>
-                <p class="text-medical-textMuted text-base md:text-lg" data-lang-en="Our advanced desktop application brings specialist-level accuracy to any clinic, enabling early detection with unprecedented speed." data-lang-id="Aplikasi desktop canggih kami menghadirkan akurasi tingkat spesialis ke klinik mana pun, memungkinkan deteksi dini dengan kecepatan yang belum pernah ada sebelumnya.">
-                    Our advanced desktop application brings specialist-level accuracy to any clinic, enabling early detection with unprecedented speed.
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-8 md:gap-12 text-center">
-                <div>
-                    <div class="text-5xl sm:text-6xl md:text-7xl font-bold text-medical-accent mb-3 md:mb-4" data-lang-en="< 5s" data-lang-id="< 5d">&lt; 5s</div>
-                    <div class="text-base md:text-xl font-semibold text-medical-textMain" data-lang-en="Analysis Time" data-lang-id="Waktu Analisis">Analysis Time</div>
-                    <p class="text-medical-textMuted text-sm md:text-base mt-2" data-lang-en="Lightning-fast processing powered by optimized FP16 inference." data-lang-id="Pemrosesan secepat kilat didukung oleh inferensi FP16 yang dioptimalkan.">Lightning-fast processing powered by optimized FP16 inference.</p>
-                </div>
-                <div>
-                    <div class="text-5xl sm:text-6xl md:text-7xl font-bold text-medical-blueAccent mb-3 md:mb-4" data-lang-en="3x" data-lang-id="3x">3x</div>
-                    <div class="text-base md:text-xl font-semibold text-medical-textMain" data-lang-en="Ensemble Architecture" data-lang-id="Arsitektur Ensemble">Ensemble Architecture</div>
-                    <p class="text-medical-textMuted text-sm md:text-base mt-2" data-lang-en="Combines Swin-Base, EfficientNetV2-M, and ConvNeXt-Base for maximum reliability." data-lang-id="Menggabungkan Swin-Base, EfficientNetV2-M, dan ConvNeXt-Base untuk keandalan maksimum.">Combines Swin-Base, EfficientNetV2-M, and ConvNeXt-Base for maximum reliability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-16 md:py-24 bg-white border-y border-medical-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-20">
-                <h2 class="text-2xl md:text-4xl font-bold text-medical-textMain mb-4 md:mb-6" data-lang-en="Comprehensive Clinical Analysis" data-lang-id="Analisis Klinis Komprehensif">Comprehensive Clinical Analysis</h2>
-                <p class="text-medical-textMuted text-base md:text-xl" data-lang-en="Our system provides detailed insights into fundus images to assist medical professionals in making informed decisions." data-lang-id="Sistem kami memberikan wawasan mendetail pada citra fundus untuk membantu tenaga medis membuat keputusan yang tepat.">Our system provides detailed insights into fundus images to assist medical professionals in making informed decisions.</p>
-            </div>
-
-            <div class="space-y-14 md:space-y-24">
-                <!-- Feature 1 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                    <div class="order-2 lg:order-1 relative">
-                        <img src="assets/feature-1.png" alt="Severity Grading" class="rounded-2xl shadow-lg w-full object-contain border border-medical-border bg-white">
-                    </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="text-medical-blueAccent mb-3 md:mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-3 md:mb-4" data-lang-en="5-Level Severity Grading" data-lang-id="Penilaian Keparahan 5 Tingkat">5-Level Severity Grading</h3>
-                        <p class="text-medical-textMuted text-base md:text-lg leading-relaxed" data-lang-en="Automatically classifies images into No DR, Mild, Moderate, Severe, or Proliferative stages with high confidence scores. The ensemble model ensures robust predictions across varying image qualities." data-lang-id="Secara otomatis mengklasifikasikan citra menjadi tahap Tanpa DR, Ringan, Sedang, Berat, atau Proliferatif dengan skor kepercayaan tinggi. Model ensemble memastikan prediksi yang kuat di berbagai kualitas citra.">
-                            Automatically classifies images into No DR, Mild, Moderate, Severe, or Proliferative stages with high confidence scores. The ensemble model ensures robust predictions across varying image qualities.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                    <div>
-                        <div class="text-medical-accent mb-3 md:mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-3 md:mb-4" data-lang-en="Multi-label Lesion Segmentation" data-lang-id="Segmentasi Lesi Multi-label">Multi-label Lesion Segmentation</h3>
-                        <p class="text-medical-textMuted text-base md:text-lg leading-relaxed" data-lang-en="Precise pixel-level detection of Hard Exudates, Hemorrhages, Microaneurysms, and Soft Exudates mapped directly on the image. The system automatically masks the optic disc to eliminate false positives." data-lang-id="Deteksi tingkat piksel yang presisi untuk Eksudat Keras, Perdarahan, Mikroaneurisma, dan Eksudat Lunak yang dipetakan langsung pada citra. Sistem secara otomatis menutupi diskus optik untuk menghilangkan positif palsu.">
-                            Precise pixel-level detection of Hard Exudates, Hemorrhages, Microaneurysms, and Soft Exudates mapped directly on the image. The system automatically masks the optic disc to eliminate false positives.
-                        </p>
-                    </div>
-                    <div class="relative">
-                        <img src="assets/feature-2.png" alt="Lesion Segmentation" class="rounded-2xl shadow-lg w-full object-contain border border-medical-border bg-white">
-                    </div>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                    <div class="order-2 lg:order-1 relative">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80" alt="Clinical Action" class="rounded-2xl shadow-lg w-full h-56 sm:h-72 lg:h-[400px] object-cover border border-medical-border">
-                    </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="text-medical-success mb-3 md:mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-3 md:mb-4" data-lang-en="Clinical Action Recommendations" data-lang-id="Rekomendasi Tindakan Klinis">Clinical Action Recommendations</h3>
-                        <p class="text-medical-textMuted text-base md:text-lg leading-relaxed" data-lang-en="Provides immediate next steps based on diagnosis, ranging from routine screening to urgent specialist referrals. Streamline patient triage and reduce the burden on specialized ophthalmology departments." data-lang-id="Memberikan langkah selanjutnya berdasarkan diagnosis, mulai dari skrining rutin hingga rujukan spesialis yang mendesak. Sederhanakan triase pasien dan kurangi beban pada departemen oftalmologi khusus.">
-                            Provides immediate next steps based on diagnosis, ranging from routine screening to urgent specialist referrals. Streamline patient triage and reduce the burden on specialized ophthalmology departments.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="py-16 md:py-20 bg-white border-b border-medical-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-3 md:mb-4" data-lang-en="How It Works" data-lang-id="Cara Kerjanya">How It Works</h2>
-                <p class="text-medical-textMuted text-base md:text-lg" data-lang-en="Our fully-portable desktop solution can be used anywhere. The simple screening process takes less than a minute per patient." data-lang-id="Solusi desktop portabel kami dapat digunakan di mana saja. Proses skrining sederhana memakan waktu kurang dari satu menit per pasien.">
-                    Our fully-portable desktop solution can be used anywhere. The simple screening process takes less than a minute per patient.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                <!-- Step 1 -->
-                <div class="relative text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-medical-bg rounded-full border-2 border-medical-accent flex items-center justify-center text-lg md:text-xl font-bold text-medical-accent mb-4 md:mb-6">1</div>
-                    <h3 class="text-base md:text-xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Capture" data-lang-id="Tangkap">Capture</h3>
-                    <p class="text-medical-textMuted text-sm md:text-base" data-lang-en="Upload a high-resolution fundus image into the desktop application." data-lang-id="Unggah citra fundus resolusi tinggi ke dalam aplikasi desktop.">Upload a high-resolution fundus image into the desktop application.</p>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="relative text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-medical-bg rounded-full border-2 border-medical-accent flex items-center justify-center text-lg md:text-xl font-bold text-medical-accent mb-4 md:mb-6">2</div>
-                    <h3 class="text-base md:text-xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Screen" data-lang-id="Skrining">Screen</h3>
-                    <p class="text-medical-textMuted text-sm md:text-base" data-lang-en="The Hybrid Ensemble AI instantly processes the image to identify vascular abnormalities." data-lang-id="AI Hybrid Ensemble memproses citra secara instan untuk mengidentifikasi kelainan pembuluh darah.">The Hybrid Ensemble AI instantly processes the image to identify vascular abnormalities.</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="relative text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-medical-bg rounded-full border-2 border-medical-accent flex items-center justify-center text-lg md:text-xl font-bold text-medical-accent mb-4 md:mb-6">3</div>
-                    <h3 class="text-base md:text-xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Analyse" data-lang-id="Analisis">Analyse</h3>
-                    <p class="text-medical-textMuted text-sm md:text-base" data-lang-en="U-Net++ architecture maps lesions at the pixel level, excluding the optic disc." data-lang-id="Arsitektur U-Net++ memetakan lesi pada tingkat piksel, mengecualikan diskus optik.">U-Net++ architecture maps lesions at the pixel level, excluding the optic disc.</p>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="relative text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-medical-bg rounded-full border-2 border-medical-accent flex items-center justify-center text-lg md:text-xl font-bold text-medical-accent mb-4 md:mb-6">4</div>
-                    <h3 class="text-base md:text-xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Results" data-lang-id="Hasil">Results</h3>
-                    <p class="text-medical-textMuted text-sm md:text-base" data-lang-en="Receive a 5-level severity grade and clear clinical action recommendations." data-lang-id="Terima tingkat keparahan 5 level dan rekomendasi tindakan klinis yang jelas.">Receive a 5-level severity grade and clear clinical action recommendations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Showcase Section -->
-    <section id="showcase" class="py-16 md:py-20 bg-medical-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                
-                <!-- Interface Image Placeholder -->
-                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-medical-border bg-white">
-                    <img src="assets/UI.gif" alt="Medical Interface Placeholder" class="w-full h-auto object-cover">
-                </div>
-
-                <!-- Text Content -->
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-4 md:mb-6" data-lang-en="Clean and Intuitive Interface" data-lang-id="Antarmuka Bersih dan Intuitif">Clean and Intuitive Interface</h2>
-                    <p class="text-base md:text-lg text-medical-textMuted mb-5 md:mb-6 leading-relaxed" data-lang-en="Designed specifically for medical environments. The interface minimizes distractions, focusing entirely on the fundus image analysis and clear diagnostic outputs." data-lang-id="Dirancang khusus untuk lingkungan medis. Antarmuka meminimalkan gangguan, berfokus sepenuhnya pada analisis citra fundus dan hasil diagnostik yang jelas.">
-                        Designed specifically for medical environments. The interface minimizes distractions, focusing entirely on the fundus image analysis and clear diagnostic outputs.
-                    </p>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-medical-success shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span class="text-medical-textMain font-medium" data-lang-en="Real-time probability distribution charts" data-lang-id="Distribusi probabilitas waktu nyata">Real-time probability distribution charts</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-medical-success shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span class="text-medical-textMain font-medium" data-lang-en="Color-coded lesion map overlays" data-lang-id="Peta lesi dengan kode warna">Color-coded lesion map overlays</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-medical-success shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span class="text-medical-textMain font-medium" data-lang-en="Optic disc detection and exclusion" data-lang-id="Deteksi dan pengecualian diskus optik">Optic disc detection and exclusion</span>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Sector Benefits Section -->
-    <section class="py-16 md:py-24 bg-white border-t border-medical-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-10 md:mb-0 md:grid md:grid-cols-3 md:gap-16">
-                <div class="md:col-span-1 mb-8 md:mb-0">
-                    <div class="md:sticky md:top-24">
-                        <h2 class="text-2xl md:text-4xl font-bold text-medical-textMain mb-4 md:mb-6" data-lang-en="Benefits Across Every Sector" data-lang-id="Manfaat di Setiap Sektor">Benefits Across Every Sector</h2>
-                        <p class="text-medical-textMuted text-base md:text-lg" data-lang-en="Aetheris AI Diagnostics is designed to adapt to various clinical environments, providing scalable solutions for diverse healthcare needs." data-lang-id="Aetheris AI Diagnostics dirancang untuk beradaptasi dengan berbagai lingkungan klinis, memberikan solusi terukur untuk beragam kebutuhan perawatan kesehatan.">
-                            Aetheris AI Diagnostics is designed to adapt to various clinical environments, providing scalable solutions for diverse healthcare needs.
-                        </p>
-                    </div>
-                </div>
-                <div class="md:col-span-2">
-                    <div class="divide-y divide-medical-border">
-                        <div class="py-6 md:py-8 first:pt-0">
-                            <h4 class="text-lg md:text-2xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Private Clinics" data-lang-id="Klinik Swasta">Private Clinics</h4>
-                            <p class="text-medical-textMuted text-sm md:text-lg leading-relaxed" data-lang-en="Offer an affordable service for patients with results they can rely on. Increase diagnostic confidence without requiring specialized on-site staff." data-lang-id="Tawarkan layanan terjangkau bagi pasien dengan hasil yang dapat diandalkan. Tingkatkan kepercayaan diagnostik tanpa memerlukan staf khusus di tempat.">Offer an affordable service for patients with results they can rely on. Increase diagnostic confidence without requiring specialized on-site staff.</p>
-                        </div>
-                        <div class="py-6 md:py-8">
-                            <h4 class="text-lg md:text-2xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Public Health" data-lang-id="Kesehatan Masyarakat">Public Health</h4>
-                            <p class="text-medical-textMuted text-sm md:text-lg leading-relaxed" data-lang-en="Reduce wasted expenditure and improve positive detection rates. Efficiently screen large populations to identify high-risk individuals early." data-lang-id="Kurangi pengeluaran yang sia-sia dan tingkatkan tingkat deteksi positif. Lakukan skrining populasi besar secara efisien untuk mengidentifikasi individu berisiko tinggi lebih awal.">Reduce wasted expenditure and improve positive detection rates. Efficiently screen large populations to identify high-risk individuals early.</p>
-                        </div>
-                        <div class="py-6 md:py-8">
-                            <h4 class="text-lg md:text-2xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="Optometrists" data-lang-id="Optometris">Optometrists</h4>
-                            <p class="text-medical-textMuted text-sm md:text-lg leading-relaxed" data-lang-en="Add more value to clients with improved service offerings and immediate referrals. Expand your practice's capabilities seamlessly." data-lang-id="Tambahkan lebih banyak nilai kepada klien dengan penawaran layanan yang lebih baik dan rujukan segera. Perluas kemampuan praktik Anda dengan mulus.">Add more value to clients with improved service offerings and immediate referrals. Expand your practice's capabilities seamlessly.</p>
-                        </div>
-                        <div class="py-6 md:py-8">
-                            <h4 class="text-lg md:text-2xl font-bold text-medical-textMain mb-2 md:mb-3" data-lang-en="NGOs & Rural Health Centers" data-lang-id="LSM & Pusat Kesehatan Pedesaan">NGOs & Rural Health Centers</h4>
-                            <p class="text-medical-textMuted text-sm md:text-lg leading-relaxed" data-lang-en="Improve impact with broader reach, lower costs, and increased accuracy. Provide specialist-level screening in remote areas without requiring an ophthalmologist." data-lang-id="Tingkatkan dampak dengan jangkauan yang lebih luas, biaya lebih rendah, dan akurasi yang meningkat. Sediakan skrining tingkat spesialis di daerah terpencil tanpa memerlukan dokter mata.">Improve impact with broader reach, lower costs, and increased accuracy. Provide specialist-level screening in remote areas without requiring an ophthalmologist.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Science Section -->
-    <section class="py-16 md:py-20 bg-medical-bg border-t border-medical-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-4 md:mb-6" data-lang-en="The Science Behind the System" data-lang-id="Sains di Balik Sistem">The Science Behind the System</h2>
-                    <p class="text-lg text-medical-textMuted mb-6 leading-relaxed" data-lang-en="Our AI model uses a state-of-the-art Hybrid Ensemble architecture to identify patterns uniquely associated with Diabetic Retinopathy. It surpasses traditional single-model approaches in both sensitivity and specificity." data-lang-id="Model AI kami menggunakan arsitektur Hybrid Ensemble mutakhir untuk mengidentifikasi pola yang secara unik terkait dengan Retinopati Diabetik. Model ini melampaui pendekatan model tunggal tradisional baik dalam sensitivitas maupun spesifisitas.">
-                        Our AI model uses a state-of-the-art Hybrid Ensemble architecture to identify patterns uniquely associated with Diabetic Retinopathy. It surpasses traditional single-model approaches in both sensitivity and specificity.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-2 h-2 rounded-full bg-medical-accent mt-2"></div>
-                            <div>
-                                <strong class="text-medical-textMain" data-lang-en="Hybrid Ensemble Classification:" data-lang-id="Klasifikasi Hybrid Ensemble:">Hybrid Ensemble Classification:</strong>
-                                <span class="text-medical-textMuted" data-lang-en="Combines Swin-Base (Global attention), EfficientNetV2-M (Efficient CNN), and ConvNeXt-Base (Modern CNN) for robust 5-level grading." data-lang-id="Menggabungkan Swin-Base (Perhatian global), EfficientNetV2-M (CNN Efisien), dan ConvNeXt-Base (CNN Modern) untuk penilaian 5 tingkat yang kuat.">Combines Swin-Base (Global attention), EfficientNetV2-M (Efficient CNN), and ConvNeXt-Base (Modern CNN) for robust 5-level grading.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-2 h-2 rounded-full bg-medical-accent mt-2"></div>
-                            <div>
-                                <strong class="text-medical-textMain" data-lang-en="U-Net++ Segmentation:" data-lang-id="Segmentasi U-Net++:">U-Net++ Segmentation:</strong>
-                                <span class="text-medical-textMuted" data-lang-en="Utilizes an EfficientNet-B2 encoder to precisely map Hard Exudates, Hemorrhages, Microaneurysms, and Soft Exudates." data-lang-id="Memanfaatkan encoder EfficientNet-B2 untuk memetakan secara presisi Eksudat Keras, Perdarahan, Mikroaneurisma, dan Eksudat Lunak.">Utilizes an EfficientNet-B2 encoder to precisely map Hard Exudates, Hemorrhages, Microaneurysms, and Soft Exudates.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-2 h-2 rounded-full bg-medical-accent mt-2"></div>
-                            <div>
-                                <strong class="text-medical-textMain" data-lang-en="FP16 Optimization:" data-lang-id="Optimasi FP16:">FP16 Optimization:</strong>
-                                <span class="text-medical-textMuted" data-lang-en="Runs in half-precision to ensure rapid inference on standard desktop hardware without compromising accuracy." data-lang-id="Berjalan dalam presisi setengah untuk memastikan inferensi cepat pada perangkat keras desktop standar tanpa mengorbankan akurasi.">Runs in half-precision to ensure rapid inference on standard desktop hardware without compromising accuracy.</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 md:p-8 rounded-2xl border border-medical-border shadow-sm">
-                    <div class="flex justify-between items-end mb-6 md:mb-8 border-b border-medical-border pb-5 md:pb-6">
-                        <div>
-                            <div class="text-4xl md:text-5xl font-bold text-medical-textMain mb-1">92%</div>
-                            <div class="text-sm font-semibold text-medical-textMuted uppercase tracking-wider" data-lang-en="Sensitivity" data-lang-id="Sensitivitas">Sensitivity</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-4xl md:text-5xl font-bold text-medical-textMain mb-1">89%</div>
-                            <div class="text-sm font-semibold text-medical-textMuted uppercase tracking-wider" data-lang-en="Specificity" data-lang-id="Spesifisitas">Specificity</div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-medical-textMuted text-center" data-lang-en="Validated on diverse clinical datasets to ensure reliable performance across different patient demographics." data-lang-id="Divalidasi pada beragam dataset klinis untuk memastikan kinerja yang andal di berbagai demografi pasien.">Validated on diverse clinical datasets to ensure reliable performance across different patient demographics.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Smart Questions (FAQ) Section -->
-    <section class="py-16 md:py-20 bg-white border-t border-medical-border">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold text-medical-textMain mb-4" data-lang-en="Frequently Asked Questions" data-lang-id="Pertanyaan yang Sering Diajukan">Frequently Asked Questions</h2>
-            </div>
-            
-            <div class="space-y-6">
-                <!-- FAQ 1 -->
-                <div class="border border-medical-border rounded-xl p-6">
-                    <h3 class="text-lg font-bold text-medical-textMain mb-2" data-lang-en="Is an internet connection required to use the system?" data-lang-id="Apakah koneksi internet diperlukan untuk menggunakan sistem?">Is an internet connection required to use the system?</h3>
-                    <p class="text-medical-textMuted" data-lang-en="No. The system functions completely offline as a native desktop application. All AI models run locally on your hardware, ensuring complete patient data privacy." data-lang-id="Tidak. Sistem berfungsi sepenuhnya offline sebagai aplikasi desktop asli. Semua model AI berjalan secara lokal di perangkat keras Anda, memastikan privasi data pasien sepenuhnya.">No. The system functions completely offline as a native desktop application. All AI models run locally on your hardware, ensuring complete patient data privacy.</p>
-                </div>
-                
-                <!-- FAQ 2 -->
-                <div class="border border-medical-border rounded-xl p-6">
-                    <h3 class="text-lg font-bold text-medical-textMain mb-2" data-lang-en="What types of lesions are detected?" data-lang-id="Jenis lesi apa yang terdeteksi?">What types of lesions are detected?</h3>
-                    <p class="text-medical-textMuted" data-lang-en="The segmentation model specifically identifies and maps Hard Exudates, Hemorrhages, Microaneurysms, and Soft Exudates. It also automatically detects and excludes the optic disc to prevent false positives." data-lang-id="Model segmentasi secara khusus mengidentifikasi dan memetakan Eksudat Keras, Perdarahan, Mikroaneurisma, dan Eksudat Lunak. Model ini juga secara otomatis mendeteksi dan mengecualikan diskus optik untuk mencegah positif palsu.">The segmentation model specifically identifies and maps Hard Exudates, Hemorrhages, Microaneurysms, and Soft Exudates. It also automatically detects and excludes the optic disc to prevent false positives.</p>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="border border-medical-border rounded-xl p-6">
-                    <h3 class="text-lg font-bold text-medical-textMain mb-2" data-lang-en="Can the software operate on existing PCs?" data-lang-id="Dapatkah perangkat lunak beroperasi di PC yang ada?">Can the software operate on existing PCs?</h3>
-                    <p class="text-medical-textMuted" data-lang-en="Yes. The application is designed to run efficiently on standard Windows, macOS, or Linux desktop computers. It utilizes FP16 optimization to maintain speed without requiring high-end GPUs." data-lang-id="Ya. Aplikasi dirancang untuk berjalan efisien pada komputer desktop standar Windows, macOS, atau Linux. Aplikasi ini memanfaatkan optimasi FP16 untuk mempertahankan kecepatan tanpa memerlukan GPU kelas atas.">Yes. The application is designed to run efficiently on standard Windows, macOS, or Linux desktop computers. It utilizes FP16 optimization to maintain speed without requiring high-end GPUs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Book a Demo Section -->
-    <section id="contact" class="py-16 md:py-24 bg-white border-t border-medical-border">
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-medical-bg border-t border-medical-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-medical-blueAccent font-semibold text-sm uppercase tracking-widest mb-4" data-lang-en="Get in Touch" data-lang-id="Hubungi Kami">Get in Touch</p>
-            <h2 class="text-3xl font-bold text-medical-textMain mb-4" data-lang-en="Ready to See It in Action?" data-lang-id="Siap Melihatnya Beraksi?">Ready to See It in Action?</h2>
-            <p class="text-medical-textMuted text-lg mb-10" data-lang-en="Reach out via WhatsApp to schedule a live demo, ask technical questions, or discuss deployment at your facility." data-lang-id="Hubungi kami melalui WhatsApp untuk menjadwalkan demo langsung, mengajukan pertanyaan teknis, atau mendiskusikan penerapan di fasilitas Anda.">
-                Reach out via WhatsApp to schedule a live demo, ask technical questions, or discuss deployment at your facility.
+            <p class="text-medical-blueAccent font-semibold text-sm uppercase tracking-widest mb-4">Get in Touch</p>
+            <h2 class="text-3xl font-bold text-medical-textMain mb-4">Interested in Our Work?</h2>
+            <p class="text-medical-textMuted text-lg mb-10">
+                Whether you want to schedule a product demo, discuss deployment at your facility, or explore a partnership, reach out and we'll get back to you.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://api.whatsapp.com/send/?phone=%2B6281280064455&text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Aetheris%20AI%20Diagnostics.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-lg font-semibold transition-colors shadow-sm"
-                   data-lang-en="Book a Demo via WhatsApp" data-lang-id="Jadwalkan Demo via WhatsApp">
+                <a href="https://api.whatsapp.com/send/?phone=%2B6281280064455&text=Hi%2C%20I%20would%20like%20to%20learn%20more%20about%20Aetheris%20AI%20Labs.&type=phone_number&app_absent=0"
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-lg font-semibold transition-colors shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    <span data-lang-en="Book a Demo via WhatsApp" data-lang-id="Jadwalkan Demo via WhatsApp">Book a Demo via WhatsApp</span>
+                    WhatsApp Us
                 </a>
                 <a href="mailto:company@aetheris.id"
-                   class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white border border-medical-border hover:bg-gray-50 text-medical-textMain rounded-lg font-semibold transition-colors shadow-sm"
-                   data-lang-en="Contact Us" data-lang-id="Hubungi Kami">
+                   class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white border border-medical-border hover:bg-gray-50 text-medical-textMain rounded-lg font-semibold transition-colors shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    <span data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</span>
+                    company@aetheris.id
                 </a>
             </div>
         </div>
@@ -486,8 +300,8 @@
             <div class="flex items-center">
                 <img src="assets/logo-primary.png" alt="Aetheris AI Labs" class="h-8 w-auto object-contain">
             </div>
-            <p class="text-medical-textMuted text-sm text-center md:text-left" data-lang-en="Diabetic Retinopathy Detection System. " data-lang-id="Sistem Deteksi Retinopati Diabetik.">
-                Diabetic Retinopathy Detection System.
+            <p class="text-medical-textMuted text-sm text-center md:text-left">
+                Intelligent Diagnostic AI for Healthcare.
             </p>
             <div class="text-sm text-medical-textMuted">
                 &copy; <span id="year"></span> Aetheris AI Labs
@@ -495,11 +309,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Language Toggle, Mobile Menu, and Dynamic Year -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuIconOpen = document.getElementById('menuIconOpen');
@@ -512,34 +324,12 @@
             menuIconClose.classList.toggle('hidden', isOpen);
         });
 
-        // Close mobile menu when a link is clicked
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 menuIconOpen.classList.remove('hidden');
                 menuIconClose.classList.add('hidden');
             });
-        });
-
-        // Language toggle (desktop + mobile)
-        let currentLang = 'en';
-
-        function applyLang(lang) {
-            currentLang = lang;
-            const isEN = lang === 'en';
-            document.getElementById('langText').textContent = isEN ? 'EN / ID' : 'ID / EN';
-            document.getElementById('langTextMobile').textContent = isEN ? 'EN' : 'ID';
-            document.querySelectorAll('[data-lang-en]').forEach(el => {
-                el.textContent = el.getAttribute(`data-lang-${lang}`);
-            });
-        }
-
-        document.getElementById('langToggle').addEventListener('click', () => {
-            applyLang(currentLang === 'en' ? 'id' : 'en');
-        });
-
-        document.getElementById('langToggleMobile').addEventListener('click', () => {
-            applyLang(currentLang === 'en' ? 'id' : 'en');
         });
     </script>
 </body>
